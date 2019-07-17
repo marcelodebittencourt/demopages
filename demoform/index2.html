@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Demo HTML Page Automation - More Elements</title>
+
+<style>
+#div1 {
+    width: 350px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid #aaaaaa;
+}
+</style>
+
+<script>
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+</head>
+<body>
+
+<h1>HTML Elements - More elements</h1>
+
+<form>
+
+ Choose one or more continent:
+ <select name="continentsMultiple" multiple>
+  <option value="africa">Africa</option>
+  <option value="america" selected>America</option>
+  <option value="asia">Asia</option>
+  <option value="europe">Europe</option>
+ </select><br>
+
+ Type a name of a web browser (datalist):
+ <input list="browsers" name="browser">
+  <datalist id="browsers">
+    <option value="Internet Explorer">
+    <option value="Firefox">
+    <option value="Chrome">
+    <option value="Opera">
+    <option value="Safari">
+  </datalist><br>
+
+ <textarea name="message" rows="10" cols="30">
+ The cat was playing in the garden.
+ </textarea> <br>
+
+  <input type="button" id="alert_button" onclick="alert('Hey! I am an alert.')" value="Show me an alert!"><br>
+
+
+  Select a file: <input type="file" id="file_button" name="myFile"><br>
+
+  Points:
+  <input type="range" id="points_range" name="points" min="0" max="10"><br>
+
+  Quantity:
+  <input type="number" id="quantity_number" name="quantity" min="0" max="100" step="10" value="30"><br>
+
+  Select a time:
+  <input type="time" id="user_time" name="usr_time"><br>
+
+  Select a color:
+  <input type="color" id="favorite_color" name="favcolor" value="#ff0000"><br>
+
+  Birthday:
+  <input type="date" id="birthday_date" name="bday"><br>
+
+  Enter a date before 1980-01-01:1
+  <input type="date" id="initial_date" name="bday" max="1979-12-31"><br>
+  Enter a date after 2000-01-01:
+  <input type="date" id="final_date" name="bday" min="2000-01-02"><br>
+
+  <input type="submit" id="submit_button" value="Submit">
+</form> 
+
+<p>Display a gauge:</p>
+<meter value="2" id="one_meter" min="0" max="10">2 out of 10</meter><br>
+<meter value="0.6" id="two_meter">60%</meter>
+
+
+<p>Click on the sun or on one of the planets to watch it closer:</p>
+
+<img src="planets.gif" id="planets_image" width="145" height="126" alt="Planets" usemap="#planetmap">
+
+<map name="planetmap">
+  <area shape="rect" id="sun_area" coords="0,0,82,126" alt="Sun" href="sun.html">
+  <area shape="circle" id="mer_area" coords="90,58,3" alt="Mercury" href="mercur.html">
+  <area shape="circle" id="ven_area" coords="124,58,8" alt="Venus" href="venus.html">
+</map>
+
+<h1>Drag and Drop</h1>
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="img_logo.gif" draggable="true" ondragstart="drag(event)" width="336" height="69">
+
+<hr>
+<h1>Output</h1>
+
+ <form action="/action_page.php"
+  oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+  0
+  <input type="range"  id="a" name="a" value="50">
+  100 +
+  <input type="number" id="b" name="b" value="50">
+  =
+  <output name="x" for="a b"></output>
+</form> 
+
+<hr>
+
+<footer>Some examples are copied or inpired in https://www.w3schools.com</footer>
+
+</body>
+</html> 
